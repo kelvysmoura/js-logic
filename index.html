@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <link rel="stylesheet" href="public/css/bootstrap.min.css">
+  <link rel="stylesheet" data-name="vs/editor/editor.main" href="monaco-editor/min/vs/editor/editor.main.css" />
+  <link rel="stylesheet" href="style.css">
+  <script src="public/js/lib/showdown.min.js"></script>
+  <script src="public/js/lib/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="bg-light">
+  <div class="container">
+    <div class="row justify-content-end p-0">
+      <div class="col-2 w-auto p-0 pb-3 pt-3">
+        <a href="challenges" class="btn btn-dark">Lista desafios</a>
+      </div>
+    </div>
+  </div>
+  <main id="main" class="container shadow-lg">
+    <div class="row">
+      <div class="col-5 p-0">
+        <div id="editor"></div>
+      </div>
+      <div class="col-7 p-4">
+        <div class="column-right">
+          <div class="top bg-light pb-1">
+            <div id="title" class="text-center"></div>
+            <div class="text-center m-0 p-0" id="username"></div>
+            <div class="text-center mt-3 mb-3" role="group" aria-label="Basic mixed styles example">
+              <button id="next" type="button" class="btn bg-light w-25" disabled>Próximo</button>
+              <button id="execute" type="button" class="btn w-25 btn-dark">Executar</button>
+              <button id="details" type="button" class="btn btn-secondary w-25" data-bs-toggle="modal"
+                data-bs-target="#modal-details">Detalhes</button>
+            </div>
+          </div>
+          
+          <div class="alert alert-danger d-none fw-bold" role="alert"></div>
+          <div id="test-cases">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="404" class="d-none text-center h1"></div>
+
+  <div class="modal" tabindex="-1" id="modal-details">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" tabindex="-1" id="modal-overlay" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+      <img src="public/loading.svg" alt="" class="loading" width="64px">
+    </div>
+  </div>
+
+  <footer class="text-center m-3">
+    <a href="https://github.com/kelvysmoura">Github</a>
+  </footer>
+
+<script>
+  var require = { paths: { vs: 'monaco-editor/min/vs' } };
+  var mdconverter = new showdown.Converter();
+</script>
+
+<script src="monaco-editor/min/vs/loader.js"></script>
+<script src="monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+<script src="monaco-editor/min/vs/editor/editor.main.js"></script>
+<script src="editor.js" type="module">
+</script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+:root {
+  --custom-bg-attention-rgb: 250, 128, 114;
+  --custom-bg-success-rgb: 144, 238, 144;
+  --custom-bg-default-rgb: 187, 213, 238;
+}
+
+[data-status="attention"],
+.custom-bg-attention {
+  background-color: rgba(var(--custom-bg-attention-rgb), 0.4);
+}
+
+[data-status="success"],
+.custom-bg-success {
+  background-color: rgba(var(--custom-bg-success-rgb), 0.4);
+}
+
+[data-status="default"],
+.custom-bg-default {
+  background-color: rgba(var(--custom-bg-default-rgb), 0.4);
+}
+
+#progress-list, #challenge-list {
+  margin-bottom: 10px;
+}
+
+#challenge-list ul {
+  list-style: none;
+  gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.challenge-item {
+  cursor: pointer;
+  
+}

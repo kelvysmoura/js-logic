@@ -1,0 +1,70 @@
+:root {
+  --custom-bg-attention-rgb: 250, 128, 114;
+  --custom-bg-success-rgb: 144, 238, 144;
+  --custom-bg-default-rgb: 187, 213, 238;
+}
+
+[data-status="attention"], .custom-bg-attention {
+  background-color: rgba(var(--custom-bg-attention-rgb), 0.4);
+}
+
+[data-status="success"], .custom-bg-success {
+  background-color: rgba(var(--custom-bg-success-rgb), 0.4);
+}
+
+[data-status="default"], .custom-bg-default {
+  background-color: rgba(var(--custom-bg-default-rgb), 0.4);
+}
+
+.column-right .top {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#title > * {
+  margin-bottom: 0;
+}
+
+#modal-overlay {
+  background-color: rgba(255,255,255, .9);
+}
+
+#editor {
+  min-height: 99vh;
+  position: sticky !important;
+  top: 5px;
+  z-index: 2;
+}
+
+code {
+  background-color: #e2e2e2;
+  padding: 2px;
+}
+
+#test-cases ul {
+  list-style: none;
+  padding: 0 !important;
+}
+
+#test-cases ul li p {
+  margin: 0;
+}
+
+.icons img {
+  width: 30px;
+}
+
+.loading {
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    var BASE_PATH = new URL('..', location.toString())
+    BASE_PATH = BASE_PATH.pathname.slice(0, -1)
+  </script>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../public/css/challenges.css">
+  <script src="../public/js/lib/bootstrap.bundle.min.js"></script>
+  <script src="../public/js/lib/showdown.min.js"></script>
+  <script src="../public/js/challenges.js" type="module"></script>
+</head>
+
+<body class="bg-light">
+  <main id="main" class="container">
+    <div class="row">
+      <div class="col-12 mb-3 mt-3">
+        <h1 class="text-center">Todos os desafios</h1>
+      </div>
+      <div class="col" id="challenge-list">
+        <ul>
+        </ul>
+      </div>
+    </div>
+  </main>
+  <div class="modal" tabindex="-1" id="modal-details">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <a href="" type="button" class="btn btn-dark modal-action">Ir para o desafio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
