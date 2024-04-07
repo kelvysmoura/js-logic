@@ -5,6 +5,7 @@ function getHash(url) {
   return url.hash.slice(1);
 }
 
+
 if (!getHash()) {
   document.location.href = "challenges";
 }
@@ -13,6 +14,7 @@ import EditorConfig from "./src/editor-config.js";
 import Challenges from "./challenges.js";
 import keys from "./src/storage-keys.js";
 import ChallengeStorage from "./src/challenge-storage.js";
+import markdown from "./src/markdown.js";
 
 const editor = monaco.editor.create(document.getElementById('editor'), EditorConfig);
 
@@ -66,10 +68,6 @@ function renderRules(rules) {
   testCasesElement.innerHTML = `<ul>${rules.join('\n')}</ul>`
 }
 
-function mdToHtml(text) {
-  return mdconverter.makeHtml(text);
-}
-
 function isJsonString(string) {
   try {
     JSON.parse(string);
@@ -83,7 +81,7 @@ function convertToStringType(text) {
   if(typeof text === 'object') {
     return JSON.stringify(text);
   }
-  return typeof text === 'string' && isJsonString(text) === false ? `"${text}"` : text;
+  return typeof text === 'string' && isJsonString(text) === false ? `"${text}"` : `${text}`;
 }
 
 function createFunctionLabel(test, functionName) {
@@ -142,7 +140,7 @@ function changeIcon(index, icon) {
 function buildTestList(tests) {
   return tests.map((test, index) => {
     let liContent = createFunctionLabel(test, getHash())
-    return getTestTemplate(index, 'public/play.svg', mdToHtml(liContent))
+    return getTestTemplate(index, 'public/play.svg', markdown.toHtml(liContent))
   })
 }
 
@@ -333,8 +331,8 @@ async function main (event) {
     }
 
     editor.setValue(storage.jscode());
-    titleElement.innerHTML = mdToHtml(`## ${module.title}`);''
-    usernameElement.innerHTML = mdToHtml(`<small class="text-secondary">by <a href="https://github.com/${module.username}" class="text-secondary" target="_blank">${module.username}</a></small>`);
+    titleElement.innerHTML = markdown.toHtml(`## ${module.title}`);''
+    usernameElement.innerHTML = markdown.toHtml(`<small class="text-secondary">by <a href="https://github.com/${module.username}" class="text-secondary" target="_blank">${module.username}</a></small>`);
 
     renderRules(buildTestList(module.tests));
     
@@ -343,7 +341,7 @@ async function main (event) {
     
     mainElement.classList.remove('d-none');
 
-    modalElement.querySelector('.modal-body').innerHTML = mdToHtml(module.details);
+    modalElement.querySelector('.modal-body').innerHTML = markdown.toHtml(module.details);
 
     let pageError = storage.error();
     

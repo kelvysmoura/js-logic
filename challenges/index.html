@@ -3,8 +3,7 @@
 
 <head>
   <script>
-    var BASE_PATH = new URL('..', location.toString())
-    BASE_PATH = BASE_PATH.pathname.slice(0, -1)
+    window.BASE_PATH = (new URL('..', location.toString())).pathname.slice(0, -1);
   </script>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <link rel="stylesheet" href="../public/css/bootstrap.min.css">
