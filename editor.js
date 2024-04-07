@@ -81,7 +81,7 @@ function convertToStringType(text) {
   if(typeof text === 'object') {
     return JSON.stringify(text);
   }
-  return typeof text === 'string' && isJsonString(text) === false ? `"${text}"` : text;
+  return typeof text === 'string' && isJsonString(text) === false ? `"${text}"` : `${text}`;
 }
 
 function createFunctionLabel(test, functionName) {
