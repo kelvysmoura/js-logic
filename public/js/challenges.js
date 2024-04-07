@@ -1,12 +1,11 @@
-async function load(module) {
+const load = async (module) => {
   return (await import(`${BASE_PATH}/${module}`)).default
 }
 
 const challenges = await load('challenges.js');
 const keys =  await load('src/storage-keys.js');
 const ChallengeStorage = await load('src/challenge-storage.js');
-
-const mdconverter = new showdown.Converter();
+const markdown = await load('src/markdown.js');
 
 const challengeList = document.querySelector('#challenge-list ul');
 const modalElement = document.getElementById('modal-details');
@@ -56,7 +55,7 @@ Array.from(document.querySelectorAll('[data-challenge-target]')).forEach(item =>
     let fn = event.target.dataset.challengeTarget;
     let challenge = challenges[fn]
     modalElement.querySelector('.modal-title').innerHTML = challenge.title;
-    modalElement.querySelector('.modal-body').innerHTML = mdconverter.makeHtml(challenge.details);
+    modalElement.querySelector('.modal-body').innerHTML = markdown.toHtml(challenge.details);
     modalElement.querySelector('.modal-action').href = BASE_PATH + `/#${fn}`
     let modal = new bootstrap.Modal(modalElement)
     modal.show();
