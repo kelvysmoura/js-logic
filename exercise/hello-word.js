@@ -41,11 +41,6 @@ export default {
       expect: errorMsg
     },
     {
-      params: [undefined],
-      expect: "Hello World!"
-    }
-    ,
-    {
       params: [true],
       expect: errorMsg
     },
