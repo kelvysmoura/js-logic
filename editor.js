@@ -81,7 +81,7 @@ function convertToStringType(text) {
   if(typeof text === 'object') {
     return JSON.stringify(text);
   }
-  return typeof text === 'string' && isJsonString(text) === false ? `"${text}"` : `${text}`;
+  return typeof text === 'string' ? `"${text}"` : text;
 }
 
 function createFunctionLabel(test, functionName) {
@@ -181,6 +181,7 @@ async function sleep(seconds) {
 }
 
 let progress = [];
+let eee;
 
 async function doExecute() {
 
@@ -197,7 +198,7 @@ async function doExecute() {
 try { 
   return ${getHash()} 
 } catch(e) { 
-  throw new SyntaxError("Function " + e.message) 
+  throw new Error("Function " + e.message) 
 }
   `;
 
@@ -206,7 +207,6 @@ try {
     execute = content();
     storage.remove(keys.ERROR);
   } catch (exception) {
-    sleep(2)
     catchBlock(exception);
     progress = [];
     totalSuccess = 0;
@@ -223,11 +223,11 @@ try {
 
     let li = document.getElementById(`test-${index}`);
 
-    let taskError = li.querySelector(`.task-error`)
+    let taskError = li.querySelector(`.task-error`);
     taskError.classList.add('d-none');
     changeIcon(index, 'loading');
 
-    await sleep(0.5)
+    await sleep(0.5);
 
     let result;
 
