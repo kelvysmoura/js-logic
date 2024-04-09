@@ -181,7 +181,6 @@ async function sleep(seconds) {
 }
 
 let progress = [];
-let eee;
 
 async function doExecute() {
 
