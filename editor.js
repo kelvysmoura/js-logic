@@ -232,6 +232,9 @@ try {
 
     try {
       result = execute(...test.params);
+      if (result?.then) {
+        result = await result;
+      }
     } catch (exception) {
       catchBlock(exception);
       progress = [];
