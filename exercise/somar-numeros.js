@@ -63,6 +63,18 @@ export default {
     {
       params: [[], {}],
       expect: errorMsg
-    }
+    },
+    {
+      params: ['a', 'b'],
+      expect: errorMsg
+    },
+    {
+      params: [1, []],
+      expect: errorMsg
+    },
+    {
+      params: [{}, 10],
+      expect: errorMsg
+    },
   ]
 }

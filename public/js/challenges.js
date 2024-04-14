@@ -5,7 +5,14 @@ const load = async (module) => {
 const challenges = await load('challenges.js');
 const keys =  await load('src/storage-keys.js');
 const ChallengeStorage = await load('src/challenge-storage.js');
+const challengeExports = await load('src/challenge-exports.js');
 const markdown = await load('src/markdown.js');
+
+const base64 = window.location.href.split('?base64=')[1]
+
+if (base64) challengeExports.setBase64ToLocalStorage(base64)
+
+const mdconverter = new showdown.Converter();
 
 const challengeList = document.querySelector('#challenge-list ul');
 const modalElement = document.getElementById('modal-details');
@@ -62,4 +69,12 @@ Array.from(document.querySelectorAll('[data-challenge-target]')).forEach(item =>
   })
 })
 
-
+document.getElementById('copyLinkButton').addEventListener('click', async () => {
+  const path = challengeExports.getLink();
+  await navigator.clipboard.writeText(path);
+  const copyLinkButton = document.getElementById('copyLinkButton')
+  copyLinkButton.innerText = 'Copiado!'
+  setTimeout(() => {
+    copyLinkButton.innerText = 'Copiar Histórico'
+  }, 1500)
+})
