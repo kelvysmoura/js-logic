@@ -10,7 +10,7 @@ export function getLink() {
 
   const currentDomain = window.location.origin;
 
-  const path = `${currentDomain}/challenges/index.html?base64=${base64Data}`;
+  const path = `${currentDomain}${BASE_PATH}/challenges/index.html?base64=${base64Data}`;
 
   return path;
 }
@@ -20,6 +20,7 @@ export function setBase64ToLocalStorage(base64 = '') {
   Object.keys(decodedBase64).forEach(key => {
     storage.set(key, decodedBase64[key]);
   })
+  location.href = `${BASE_PATH}/challenges`;
 }
 
 export default {
