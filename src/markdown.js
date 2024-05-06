@@ -11,7 +11,7 @@ export default {
 
   toHtml(text) {
     create()
-    return MDConverter.makeHtml(this.trimStartLines(text));
+    return MDConverter.makeHtml(text);
   },
 
   trimStartLines(text) {

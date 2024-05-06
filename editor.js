@@ -81,7 +81,18 @@ function convertToStringType(text) {
   if(typeof text === 'object') {
     return JSON.stringify(text);
   }
-  return typeof text === 'string' ? `"${text}"` : text;
+
+  if (typeof text === 'string') {
+    try {
+      JSON.parse(text);
+      return text;
+    } catch (e) {
+      return `"${text}"`
+    }
+  }
+
+  return text;
+
 }
 
 function createFunctionLabel(test, functionName) {
@@ -204,6 +215,9 @@ try {
   try {
     content = new Function(`${content};\n${returnFunction}`);
     execute = content();
+    if (module.checkContent) {
+      module.checkContent(content);
+    }
     storage.remove(keys.ERROR);
   } catch (exception) {
     catchBlock(exception);
@@ -231,15 +245,25 @@ try {
     let result;
 
     try {
+      if (module.beforeExecute) {
+        module.beforeExecute();
+      }
       result = execute(...test.params);
       if (result?.then) {
         result = await result;
       }
     } catch (exception) {
+      if (module.afterExecute){
+        module.afterExecute();
+      }
       catchBlock(exception);
       progress = [];
       totalSuccess = 0;
       break;
+    }
+
+    if (module.afterExecute) {
+      module.afterExecute();
     }
 
     result = Array.isArray(result) 
