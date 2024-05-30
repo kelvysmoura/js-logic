@@ -32,5 +32,13 @@
 
 .challenge-item {
   cursor: pointer;
-  
+}
+
+code {
+  background-color: #f0f0f0 !important;
+  padding: 5px;
+}
+
+code[class*="language"] {
+  display: block;
 }

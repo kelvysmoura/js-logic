@@ -83,6 +83,11 @@ function convertToStringType(text) {
   }
 
   if (typeof text === 'string') {
+    
+    if(!Number.isNaN(Number(text))){
+      return `"${text}"`
+    }
+
     try {
       JSON.parse(text);
       return text;
@@ -99,6 +104,7 @@ function createFunctionLabel(test, functionName) {
   let params = test.params.map(param => {
     return convertToStringType(param)
   }).join(', ');
+  console.log(params);
   return `${functionName}(${params});`;
 }
 
@@ -358,7 +364,7 @@ async function main (event) {
 
     editor.setValue(storage.jscode());
     titleElement.innerHTML = markdown.toHtml(`## ${module.title}`);''
-    usernameElement.innerHTML = markdown.toHtml(`<small class="text-secondary">by <a href="https://github.com/${module.username}" class="text-secondary" target="_blank">${module.username}</a></small>`);
+    usernameElement.innerHTML = markdown.toHtml(`<small class="text-secondary"><a href="https://github.com/${module.username}" class="text-secondary" target="_blank">${module.username}</a></small>`);
 
     renderRules(buildTestList(module.tests));
     
