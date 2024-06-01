@@ -360,7 +360,7 @@ async function main (event) {
 
     editor.setValue(storage.jscode());
     titleElement.innerHTML = markdown.toHtml(`## ${module.title}`);''
-    usernameElement.innerHTML = markdown.toHtml(`<small class="text-secondary">by <a href="https://github.com/${module.username}" class="text-secondary" target="_blank">${module.username}</a></small>`);
+    usernameElement.innerHTML = markdown.toHtml(`<small class="text-secondary"><a href="https://github.com/${module.username}" class="text-secondary" target="_blank">${module.username}</a></small>`);
 
     renderRules(buildTestList(module.tests));
     
