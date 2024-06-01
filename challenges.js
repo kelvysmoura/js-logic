@@ -3,7 +3,8 @@ import somarNumeros from "./exercise/somar-numeros.js";
 import somarImpares from "./exercise/somar-impares.js";
 import criptografiaCesar from "./exercise/criptografia-cesar.js";
 import inverterLista from "./exercise/inverter-lista.js";
-import processTemplate from "./exercise/template.js";
+import template from "./exercise/template.js";
+import converterDataParaBr from "./exercise/converter-data-para-br.js";
 
 export default {
   helloWorld,
@@ -11,5 +12,6 @@ export default {
   somarImpares,
   criptografiaCesar,
   inverterLista,
-  processTemplate
+  template,
+  converterDataParaBr
 };
