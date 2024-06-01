@@ -139,6 +139,7 @@ function getTestTemplate(index, icon, content) {
       <div class="task-error mt-2 ${ hasAttention ? "d-block" : "d-none" }">
       ${ hasAttention ? createTestErroLines(status.expect, status.result) : "" }
       </div>
+      <div class="result"></div>
     </li>
   `;
 }
@@ -235,7 +236,7 @@ try {
     let test = module.tests[index];
 
     let li = document.getElementById(`test-${index}`);
-
+    li.querySelector('.result').innerHTML = '';
     let taskError = li.querySelector(`.task-error`);
     taskError.classList.add('d-none');
     changeIcon(index, 'loading');
@@ -291,6 +292,7 @@ try {
     }
 
     li.setAttribute('data-status', 'success')
+    li.querySelector('.result').innerHTML = `<small>Resultado: ${result}</small>`
     changeIcon(index, 'success');
     totalSuccess++;
 
