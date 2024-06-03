@@ -23,6 +23,10 @@ export default {
     charCodeAt: '[String.charCodeAt](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)',
     fromCharCode: '[String.fromCharCode](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode)',
     join: '[Array.join](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/join)',
-    /* ...[] */ destructuring: '[Destructuring](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)'
+    /* ...[] */ destructuring: '[Destructuring](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)',
+    newDate: '[new Date()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Date)',
+    getDate: '[Date.prototype.getDate](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate)',
+    getMonth: '[Date.prototype.getMonth](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth)',
+    getFullYear: '[Date.prototype.getFullYear](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Date/getFullYear)',
 }
 
