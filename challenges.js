@@ -7,6 +7,7 @@ import template from "./exercise/template.js";
 import converterDataParaBr from "./exercise/converter-data-para-iso.js";
 import converterDataParaIso from "./exercise/converter-data-para-br.js";
 import minusculoParaMaiusculo from './exercise/minusculo-para-maiusculo.js'
+import dataAtual from "./exercise/data-atual.js";
 
 export default {
   helloWorld,
@@ -17,5 +18,6 @@ export default {
   inverterLista,
   template,
   converterDataParaBr,
-  minusculoParaMaiusculo
+  minusculoParaMaiusculo,
+  dataAtual
 };
