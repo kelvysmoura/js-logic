@@ -253,6 +253,9 @@ try {
       if (result?.then) {
         result = await result;
       }
+      if (module.exceptionDispatcher) {
+        module.exceptionDispatcher();
+      }
     } catch (exception) {
       if (module.afterExecute){
         module.afterExecute();
@@ -272,20 +275,25 @@ try {
       : result !== null && typeof result === 'object' 
         ? JSON.stringify(result)
         : result
+    
+    let expect = test.expect;
+    if (typeof test.expect === 'function') {
+      expect = test.expect();
+    }
 
-    test.expect = Array.isArray(test.expect) 
-      ? JSON.stringify(test.expect) 
-      : test.expect !== null && typeof test.expect === 'object'
-        ? JSON.stringify(test.expect)
-        : test.expect;
+    expect = Array.isArray(expect) 
+      ? JSON.stringify(expect) 
+      : expect !== null && typeof expect === 'object'
+        ? JSON.stringify(expect)
+        : expect;
 
-    if (result !== test.expect) {
-      taskError.innerHTML = createTestErroLines(test.expect, result);
+    if (result !== expect) {
+      taskError.innerHTML = createTestErroLines(expect, result);
       taskError.classList.remove('d-none')
       li.setAttribute('data-status', 'attention')
       changeIcon(index, 'attention');
       progress[index].status = 'attention';
-      progress[index].expect = test.expect;
+      progress[index].expect = expect;
       progress[index].result = result;
       disableNextButton()
       continue;
