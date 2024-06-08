@@ -28,5 +28,6 @@ export default {
     getDate: '[Date.prototype.getDate](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate)',
     getMonth: '[Date.prototype.getMonth](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth)',
     getFullYear: '[Date.prototype.getFullYear](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Date/getFullYear)',
+    slice: '[Array.slice](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)',
 }
 

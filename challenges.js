@@ -8,6 +8,7 @@ import converterDataParaBr from "./exercise/converter-data-para-iso.js";
 import converterDataParaIso from "./exercise/converter-data-para-br.js";
 import minusculoParaMaiusculo from './exercise/minusculo-para-maiusculo.js'
 import dataAtual from "./exercise/data-atual.js";
+import primeiraLetraMaiuscula from "./exercise/primeira-letra-maiuscula.js";
 
 export default {
   helloWorld,
@@ -19,5 +20,6 @@ export default {
   template,
   converterDataParaBr,
   minusculoParaMaiusculo,
-  dataAtual
+  dataAtual,
+  primeiraLetraMaiuscula
 };
