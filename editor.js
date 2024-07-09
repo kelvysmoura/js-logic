@@ -83,7 +83,7 @@ function convertToStringType(text) {
   }
 
   if (typeof text === 'string') {
-    if(!Number.isNaN(text)) {
+    if(!Number.isNaN(Number(text))) {
       return `"${text}"`
     }
     try {
