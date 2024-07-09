@@ -83,6 +83,9 @@ function convertToStringType(text) {
   }
 
   if (typeof text === 'string') {
+    if(!Number.isNaN(text)) {
+      return `"${text}"`
+    }
     try {
       JSON.parse(text);
       return text;
