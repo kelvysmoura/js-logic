@@ -7,9 +7,9 @@ export default {
   title: "Somar números",
   
   details: `
-Neste desafio você vai criar uma função capaz de receber dois argumentos e retornar a soma entre eles. Também vai precisar fazer validações para garantir que está somando parâmetros do tipo numérico ou de outros tipos que podem ser convertidos em números.
+Neste desafio você vai criar uma função capaz de receber dois argumentos e retornar a soma entre eles. Também vai precisar fazer validações para garantir que está somando parâmetros do tipo numérico.
 
-Você vai precisar saber
+Links que pode ajudar
 - [Number](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Number)
 - [Number.isNaN()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
 - [if...else](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/if...else)
@@ -19,8 +19,8 @@ Requisitos
 - Quando a função for executada com dois argumentos do tipo numérico, deve ser retornado a soma entre os argumentos
 - A função deve ser capaz de fazer soma entre números positivos, negativos, inteiros e decimais
 - A função deve ser capaz de fazer soma entre números que chegam como string e garantir que vai retornar um número e não uma string concatenada
-- Quando um dos parâmetros não puder ser convertidos para um tipo numérico, a função deve retornar a mensagem: 
-\`"Função aceita apenas números ou valores que podem ser convertidos em números."\`
+- Quando um dos parâmetros não for um número, a função deve retornar a mensagem: 
+\`"Função aceita apenas números."\`
 `,
   tests: [
     {
