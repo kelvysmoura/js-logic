@@ -26,7 +26,6 @@ export const getHash = function () {
 
 export const loadExerciseDescription =  async (hash) => {
     let request = await fetch(`js/exercises/${hash}/description.md`);
-    console.log(request.status);
     if (request.status !== 200) {
         return loadExerciseDescription(404);
     }
@@ -42,7 +41,6 @@ export const loadExercise = async (hash) => {
         EXERCISE_LOADED[hash] = request.default;
         return EXERCISE_LOADED[hash];
     } catch (e) {
-        console.log(e.message)
         redirect(404);
     }
 }

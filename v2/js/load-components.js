@@ -4,7 +4,7 @@ import ExerciseList from './components/ExerciseList.js';
 
 const loadComponents = {
     [ExerciseList.name]:  ExerciseList(MenuItems),
-    [ButtonGroup.name]:  ButtonGroup(),
+    // [ButtonGroup.name]:  ButtonGroup(),
 };
 
 export default loadComponents;

@@ -26,3 +26,10 @@
     overflow: auto;
     /* Necessário para ver o conteúdo quando redimensionar */
 }
+
+code {
+    background-color: #333;
+    padding: 4px;
+    border-radius: 2px;
+    font-size: 0.9em !important;
+}

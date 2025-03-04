@@ -22,27 +22,33 @@ Object.entries(loadComponents).forEach(async ([name, content]) => {
 let runCodeButton = document.getElementById('run-code');
 runCodeButton.addEventListener('click', async () => {
     let exercise = await getCurrentExercise();
-    for (let [index, caseItem] of exercise.cases.entries()) {
+
+    for (let [index, step] of exercise.steps.entries()) {
         let id = `${exercise.name}-${index}`;
+
         UpdateCaseItem({
             id,
             status: STATUS.LOADING
         });
+
         await sleep(1);
 
-        try {
-            if (caseItem.validate(editor.getValue())) {
+        for (let [index, assert] of step.assertions.entries()) {
+            try {
+                if (assert.execute(editor.getValue())) {
+                    UpdateCaseItem({
+                        id,
+                        status: STATUS.SUCCESS
+                    });
+                }
+            } catch (e) {
                 UpdateCaseItem({
                     id,
-                    status: STATUS.SUCCESS
+                    status: STATUS.ERROR,
+                    message: e.message
                 });
+                break;
             }
-        } catch (e) {
-            UpdateCaseItem({
-                id,
-                status: STATUS.ERROR,
-                message: e.message
-            });
         }
     }
     
@@ -52,15 +58,13 @@ const bootstrap = async () => {
     let exercise = await getCurrentExercise();
     if(exercise) {
         let content = await loadExerciseDescription(getHash());
-        let cases = exercise.cases.map((item, index) => {
+        let cases = exercise.steps.map((item, index) => {
             return ExerciseCaseItem({ ...item, id: `${exercise.name}-${index}` });
         });
         renderComponent("ExerciseContentByHash", content);
         renderComponent('ExerciseCases', cases.join(''));
         editor.setValue(storage.rawCode());
     }
-    console.log(exercise);
-    
 };
 
 window.addEventListener('hashchange', bootstrap);

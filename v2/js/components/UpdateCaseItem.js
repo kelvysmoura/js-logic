@@ -1,4 +1,5 @@
 import { ICONS, STATUS } from "../consts.js";
+import md from '../markdown.js';
 
 export default function ({id, status, message = ''}) {
     let element = document.getElementById(id);
@@ -11,7 +12,7 @@ export default function ({id, status, message = ''}) {
             img.classList.remove('bg-green-400');
             img.src = ICONS.ATTENTION;
             img.classList.add('bg-red-400')
-            divError.innerHTML = message;    
+            divError.innerHTML = md(message);    
             break;
         case STATUS.LOADING:
             img = element.querySelector(".case-img");

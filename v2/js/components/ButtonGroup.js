@@ -9,8 +9,6 @@ export default function ButtonGroup() {
 
     let toggleCodeAction = clickEvent(() => {
         let element = toggleElementById('ExerciseContent');
-        console.log(element)
-        
     })
 
     return `
